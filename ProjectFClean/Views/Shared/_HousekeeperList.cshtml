@@ -1,0 +1,14 @@
+﻿@model IEnumerable<ProjectFClean.Models.Housekeeper>
+
+@foreach (var housekeeper in Model)
+{
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="~/img/@(housekeeper.HID).jpg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">@housekeeper.Name</h5>
+            <p class="card-text">@housekeeper.Discription</p>
+            <p class="card-text" style="color:red">@housekeeper.Price VNĐ</p>
+            <a href="#" class="btn btn-primary" style="float:right ">Rent</a>
+        </div>
+    </div>
+}
