@@ -14,16 +14,18 @@ namespace ProjectFClean.Models
     
     public partial class Post
     {
-        public string PID { get; set; }
-        public string ServiceID { get; set; }
+        public int PID { get; set; }
+        public int ServiceID { get; set; }
         public decimal Price { get; set; }
         public string Location { get; set; }
         public string Gender { get; set; }
-        public int Age { get; set; }
+        public Nullable<int> Age { get; set; }
         public string Experience { get; set; }
         public string Note { get; set; }
-        public string RID { get; set; }
-        public string HID { get; set; }
+        public Nullable<int> RID { get; set; }
+        public Nullable<int> HID { get; set; }
+        public string DatePost { get; set; }
+        public string Description { get; set; }
     
         public virtual Service Service { get; set; }
     }

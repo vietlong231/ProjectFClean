@@ -13,10 +13,10 @@ namespace ProjectFClean.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ProjectFCleanEntities3 : DbContext
+    public partial class ProjectFCleanDB1 : DbContext
     {
-        public ProjectFCleanEntities3()
-            : base("name=ProjectFCleanEntities3")
+        public ProjectFCleanDB1()
+            : base("name=ProjectFCleanDB1")
         {
         }
     
@@ -25,16 +25,16 @@ namespace ProjectFClean.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Account> Accounts { get; set; }
-        public virtual DbSet<Admin> Admins { get; set; }
-        public virtual DbSet<Compact> Compacts { get; set; }
+        public virtual DbSet<Account> Account { get; set; }
+        public virtual DbSet<Admin> Admin { get; set; }
+        public virtual DbSet<Compact> Compact { get; set; }
         public virtual DbSet<Compact_detail> Compact_detail { get; set; }
-        public virtual DbSet<Feedback> Feedbacks { get; set; }
-        public virtual DbSet<Housekeeper> Housekeepers { get; set; }
-        public virtual DbSet<Payment> Payments { get; set; }
-        public virtual DbSet<Post> Posts { get; set; }
-        public virtual DbSet<Renter> Renters { get; set; }
-        public virtual DbSet<Service> Services { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Feedback> Feedback { get; set; }
+        public virtual DbSet<Housekeeper> Housekeeper { get; set; }
+        public virtual DbSet<Payment> Payment { get; set; }
+        public virtual DbSet<Post> Post { get; set; }
+        public virtual DbSet<Renter> Renter { get; set; }
+        public virtual DbSet<Service> Service { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

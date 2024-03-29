@@ -8,16 +8,16 @@ namespace ProjectFClean.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ProjectFCleanEntities3 _db;
+        private readonly ProjectFCleanDB1 _db;
 
         public HomeController()
         {
-            _db = new ProjectFCleanEntities3();
+            _db = new ProjectFCleanDB1();
         }
 
         public ActionResult Index()
         {
-            List<Housekeeper> listHousekeeper = _db.Housekeepers.ToList();
+            List<Housekeeper> listHousekeeper = _db.Housekeeper.ToList();
             return View(listHousekeeper);
         }
 
@@ -25,7 +25,7 @@ namespace ProjectFClean.Controllers
         public ActionResult Search(string gender, string location, string name, string service)
         {
             // Lọc danh sách HouseKeeper dựa trên các tham số tìm kiếm
-            IQueryable<Housekeeper> housekeepers = _db.Housekeepers;
+            IQueryable<Housekeeper> housekeepers = _db.Housekeeper;
 
             if (!string.IsNullOrEmpty(gender))
             {
@@ -56,7 +56,7 @@ namespace ProjectFClean.Controllers
         public ActionResult Sort(int sortOption)
         {
             // Get the list of housekeepers from the database
-            var housekeepers = _db.Housekeepers.ToList();
+            var housekeepers = _db.Housekeeper.ToList();
 
             // Perform sorting based on sortOption
             switch (sortOption)
@@ -78,5 +78,6 @@ namespace ProjectFClean.Controllers
             // Return the sorted list as a partial view
             return PartialView("_HousekeeperList", housekeepers);
         }
+        
     }
 }

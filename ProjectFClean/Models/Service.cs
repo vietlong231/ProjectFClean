@@ -17,16 +17,16 @@ namespace ProjectFClean.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Service()
         {
-            this.Compacts = new HashSet<Compact>();
-            this.Posts = new HashSet<Post>();
+            this.Compact = new HashSet<Compact>();
+            this.Post = new HashSet<Post>();
         }
     
-        public string ServiceID { get; set; }
+        public int ServiceID { get; set; }
         public string Name_of_service { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Compact> Compacts { get; set; }
+        public virtual ICollection<Compact> Compact { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Post> Posts { get; set; }
+        public virtual ICollection<Post> Post { get; set; }
     }
 }

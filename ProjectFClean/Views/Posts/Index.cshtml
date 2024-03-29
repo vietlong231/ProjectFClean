@@ -1,0 +1,48 @@
+﻿
+
+@{
+    ViewBag.Title = "FClean";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<body>
+    <div>
+        <!-- Posts Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="container-heading">
+                    <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Post Listing</h1>
+                    <a class="btn btn-primary" href="~/Posts/Create" id="btn-add">Create a Post</a>
+                </div>
+                <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.3s">
+
+                    <div class="tab-content">
+                        <div id="tab-1" class="tab-pane fade show p-0 active">         
+                                    <a>
+                                        @foreach (var post in Model)
+                                        {
+                                            <div class="post-item">
+                                                <h5 class="mb-3">Name of author</h5>
+                                                <span id ="name-service"class="text-truncate me-3"><i class="fa-solid fa-bookmark" style="color: #00b074;"></i> @post.Service.Name_of_service</span>
+                                                <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i> @post.Price</span>
+                                                <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i> @post.Location</span>
+                                                @*<p>Service: @post.Service.Name_of_service</p>
+                                                <p>Price: @post.Price</p>
+                                                <p>Location: @post.Location</p>*@
+                                            </div>
+                                            <div class="Apply">
+                                                <div class="d-flex mb-3">
+                                                    <a class="btn btn-primary" href="">Apply Now</a>
+                                                </div>
+                                                <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                            </div>
+                                        }
+                                    </a>                                    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+

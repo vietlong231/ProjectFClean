@@ -17,11 +17,11 @@ namespace ProjectFClean.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Housekeeper()
         {
-            this.Compacts = new HashSet<Compact>();
-            this.Feedbacks = new HashSet<Feedback>();
+            this.Compact = new HashSet<Compact>();
+            this.Feedback = new HashSet<Feedback>();
         }
     
-        public string HID { get; set; }
+        public int HID { get; set; }
         public string Gmail { get; set; }
         public string Name { get; set; }
         public int Phone { get; set; }
@@ -33,13 +33,13 @@ namespace ProjectFClean.Models
         public string Skill { get; set; }
         public string Experiment { get; set; }
         public string Discription { get; set; }
-        public string AccountID { get; set; }
+        public int AccountID { get; set; }
         public decimal Money { get; set; }
     
         public virtual Account Account { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Compact> Compacts { get; set; }
+        public virtual ICollection<Compact> Compact { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Feedback> Feedbacks { get; set; }
+        public virtual ICollection<Feedback> Feedback { get; set; }
     }
 }
