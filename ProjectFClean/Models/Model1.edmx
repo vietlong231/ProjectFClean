@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ProjectFCleanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="ProjectFCleanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="AccountID" />
@@ -302,7 +302,8 @@
             <End Role="Renter" EntitySet="Renter" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ProjectFCleanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -408,12 +409,11 @@
           <Property Name="Gender" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Age" Type="Int32" />
           <Property Name="Experience" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="RID" Type="Int32" />
           <Property Name="HID" Type="Int32" />
           <Property Name="DatePost" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Service" Relationship="Self.FK_Post_Service" FromRole="Post" ToRole="Service" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Renter">
           <Key>
@@ -571,7 +571,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ProjectFCleanDB1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ProjectFCleanDB2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Account" EntityType="Self.Account" />
           <EntitySet Name="Admin" EntityType="Self.Admin" />
           <EntitySet Name="Compact" EntityType="Self.Compact" />
@@ -629,7 +629,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ProjectFCleanModelStoreContainer" CdmEntityContainer="ProjectFCleanDB1">
+        <EntityContainerMapping StorageEntityContainer="ProjectFCleanModelStoreContainer" CdmEntityContainer="ProjectFCleanDB2">
           <EntitySetMapping Name="Account">
             <EntityTypeMapping TypeName="ProjectFCleanModel.Account">
               <MappingFragment StoreEntitySet="Account">
@@ -717,7 +717,6 @@
           <EntitySetMapping Name="Post">
             <EntityTypeMapping TypeName="ProjectFCleanModel.Post">
               <MappingFragment StoreEntitySet="Post">
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="PID" ColumnName="PID" />
                 <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
@@ -725,6 +724,7 @@
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="Age" ColumnName="Age" />
                 <ScalarProperty Name="Experience" ColumnName="Experience" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="RID" ColumnName="RID" />
                 <ScalarProperty Name="HID" ColumnName="HID" />
                 <ScalarProperty Name="DatePost" ColumnName="DatePost" />

@@ -8,11 +8,11 @@ namespace ProjectFClean.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ProjectFCleanDB1 _db;
+        private readonly ProjectFCleanDB2 _db;
 
         public HomeController()
         {
-            _db = new ProjectFCleanDB1();
+            _db = new ProjectFCleanDB2();
         }
 
         public ActionResult Index()

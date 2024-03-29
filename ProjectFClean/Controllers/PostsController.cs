@@ -12,7 +12,7 @@ namespace ProjectFClean.Controllers
 {
     public class PostsController : Controller
     {
-        private ProjectFCleanDB1 db = new ProjectFCleanDB1();
+        private ProjectFCleanDB2 db = new ProjectFCleanDB2();
 
         // GET: Posts
         public ActionResult Index()
