@@ -20,7 +20,7 @@
                     @foreach (var post in Model.ListPost)
                     {
                         <a class="post-link" href="@Url.Action("DetailsPost", "Posts", new { pid = post.PID })">
-                            <div class="post-item">
+                            <div class="post-item">                                
                                 <div class="list-item-post">
                                     <h5 class="mb-3">@post.Service.Name_of_service</h5>
                                     <span id="name-author" class="text-truncate me-3"><i class="fa-solid fa-bookmark" style="color: #00b074;"></i>@post.HID </span>
@@ -28,8 +28,8 @@
                                     <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>@post.Location </span>
                                     @*<span class="text-truncate me-3"><i class="far fa-calendar-alt text-primary me-2"></i>@post.DatePost.ToString("dd-MM-yyyy")</span>*@
                                 </div>
-                                <div class="Apply">
-                                    <a href="#" class="btn btn-primary">Apply Now</a>
+                                <div  class="apply" >
+                                    <a href="#" class="btn btn-primary" >Apply Now</a>
                                 </div>
                             </div>
                         </a>
@@ -43,7 +43,7 @@
     </div>
 </body>
 <script>
-    $(document).on('click', '.post-link', function (e) {
+    $(document).on('click', '.apply', function (e) {
         e.preventDefault();
         var PID = $(this).data('pid');
         window.location.href = $(this).attr('href');
@@ -55,8 +55,9 @@
         display: flex;
         justify-content: space-between;
         padding-left: 100px;
-        align-items: flex-end;
+        align-items: flex-end;        
     }
+
 
     .list-item-post {
         display: flex;
@@ -64,9 +65,7 @@
         gap: 15px;
     }
 
-    .Apply {
-        padding: 20px;
-    }
+
 
     .container-heading {
         display: flex;

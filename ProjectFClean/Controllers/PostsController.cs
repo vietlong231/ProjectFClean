@@ -13,7 +13,7 @@ namespace ProjectFClean.Controllers
 {
     public class PostsController : Controller
     {
-        private ProjectFCleanDB1 db = new ProjectFCleanDB1();
+        private readonly ProjectFCleanDB1 db = new ProjectFCleanDB1();
         
         public class PostIndexViewModel
         {
@@ -105,9 +105,9 @@ namespace ProjectFClean.Controllers
         }
 
         // GET: Posts/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int id = 0)
         {
-            if (id == null)
+            if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -119,6 +119,7 @@ namespace ProjectFClean.Controllers
             ViewBag.ServiceID = new SelectList(db.Service, "ServiceID", "Name_of_service", post.ServiceID);
             return View(post);
         }
+
 
         // POST: Posts/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 

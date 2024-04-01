@@ -102,10 +102,11 @@
             <a data-hid="@item.HID">
                 <!-- Kiểm tra ở đây -->
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="~/img/@(item.HID).jpg" alt="Card image cap">
+                    <img class="card-img-top" src="~/img/imgH/@(item.HID).jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">@item.Name</h5>
-                        <p class="card-text">@item.Discription</p>
+                        <p class="card-text">Service: @item.Skill</p>
+                        <p class="card-text">Experiment: @item.Experiment months</p>
                         <p id="Price" class="card-text" >@item.Price VNĐ</p>
                     </div>
                 </div>
@@ -180,8 +181,39 @@
         background-color: #f0564a;
         color: #fff;
         border-radius: 14px;
-        padding: 6px 10px 4px;
+        padding: 6px 12px 6px;
         font-size: 13px;
         color: white;
+        margin-top: 10px;
+        font-size: 14px;
+        font-weight: bolder;
+    }
+
+    .card-img-top {
+        width: 288px;
+        height: 276px;
+        border-radius: 14px;
+    }
+
+    .card {
+        border-radius: 14px;
+        margin-right: 121px;
+        margin-bottom: 50px;
+    }
+
+    .listhousekeeper {
+        display: flex;
+        margin: 40px;
+        flex-wrap: wrap;
+    }
+
+    #sortSelect {
+        margin-bottom: 10px;
+        width: 100px;
+        border-radius: 10px;
+    }
+
+    .card-text {
+        color: gray;
     }
 </style>
