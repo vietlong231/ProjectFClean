@@ -609,12 +609,11 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Shared\_HousekeeperList.cshtml" />
     <Content Include="Views\Shared\_LayoutPage.cshtml" />
-    <Content Include="Views\Home\ListHousekeeper.cshtml" />
     <Content Include="Views\Home\DetailsHousekeeper.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Posts\Create.cshtml" />
     <Content Include="Views\Posts\Delete.cshtml" />
-    <Content Include="Views\Posts\Details.cshtml" />
+    <None Include="Views\Posts\Details.cshtml" />
     <Content Include="Views\Posts\Edit.cshtml" />
     <Content Include="Views\Posts\Index.cshtml" />
   </ItemGroup>

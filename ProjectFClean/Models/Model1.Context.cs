@@ -13,10 +13,10 @@ namespace ProjectFClean.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ProjectFCleanDB : DbContext
+    public partial class ProjectFCleanDB1 : DbContext
     {
-        public ProjectFCleanDB()
-            : base("name=ProjectFCleanDB")
+        public ProjectFCleanDB1()
+            : base("name=ProjectFCleanDB1")
         {
         }
     

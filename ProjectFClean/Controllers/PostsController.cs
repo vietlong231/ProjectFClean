@@ -7,34 +7,50 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ProjectFClean.Models;
+using static ProjectFClean.Controllers.HomeController;
 
 namespace ProjectFClean.Controllers
 {
     public class PostsController : Controller
     {
-        private ProjectFCleanDB db = new ProjectFCleanDB();
+        private ProjectFCleanDB1 db = new ProjectFCleanDB1();
+        
+        public class PostIndexViewModel
+        {
+            public List<Post> ListPost { get; set; }
+            public List<Service> ListService { get; set; }
+        }
 
+       
         // GET: Posts
         public ActionResult Index()
         {
+            var viewModelPost = new PostIndexViewModel
+            {
+                ListPost = db.Post.ToList(),
+                
+            };
+            return View(viewModelPost); 
             //var post = db.Post.Include(p => p.PID);            
-            var post = db.Post; // No Include statement
-            return View(post.ToList());
-        }
+            //var post = db.Post; // No Include statement
+            //return View(post.ToList());
 
+        }
         // GET: Posts/Details/5
-        public ActionResult Details(string id)
+        public ActionResult DetailsPost(int pid = 0)
         {
-            if (id == null)
+            
+            if (pid == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Post post = db.Post.Find(id);
+            Post post = db.Post.Find(pid);
             if (post == null)
             {
                 return HttpNotFound();
             }
-            return View(post);
+            //return View(post);
+            return View("Details", post);
         }
 
         // GET: Posts/Create

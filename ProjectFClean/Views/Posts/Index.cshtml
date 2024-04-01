@@ -1,4 +1,5 @@
-﻿
+﻿@using Newtonsoft.Json
+@model ProjectFClean.Controllers.PostsController.PostIndexViewModel
 
 @{
     ViewBag.Title = "FClean";
@@ -13,41 +14,41 @@
                     <h1 class="text-center mb-5 wow fadeInUp" id="header-post" data-wow-delay="0.1s">Post Listing</h1>
                     <a class="btn btn-primary" href="~/Posts/Create" id="btn-add">Create a Post</a>
                 </div>
-                <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.3s">
 
-                    <div class="tab-content">
-                        <div id="tab-1" class="tab-pane fade show p-0 active">
-                            <a>
-                                @foreach (var post in Model)
-                                {
-                                    <div class="post-item">
-                                        <div class="list-item-post">
-                                            <h5 class="mb-3">Name of author</h5>
-                                            <span id="name-service" class="text-truncate me-3"><i class="fa-solid fa-bookmark" style="color: #00b074;"></i> @post.Service.Name_of_service</span>
-                                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>@post.Price</span>
-                                            <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>@post.Location </span>
-                                            <span class="text-truncate me-3"><i class="far fa-calendar-alt text-primary me-2"></i>@DateTime.Now.ToString("dd-MM-yyyy")</span>
-                                            @*<input type="text" id="date-post" class="form-control" readonly value="@DateTime.Now.ToString("yyyy-MM-dd")">*@
-                                        </div>
-                                        <div class="Apply">
-                                            <a class="btn btn-primary" href="">Apply Now</a>
-                                        </div>
-                                    </div>
-                                    @*<div class="Apply">
-                                            <div class="d-flex mb-3">
-                                                <a class="btn btn-primary" href="">Apply Now</a>
-                                            </div>
-                                            <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
-                                        </div>*@
-                                }
-                            </a>
-                        </div>
-                    </div>
+                <div class="listpost">
+
+                    @foreach (var post in Model.ListPost)
+                    {
+                        <a class="post-link" href="@Url.Action("DetailsPost", "Posts", new { pid = post.PID })">
+                            <div class="post-item">
+                                <div class="list-item-post">
+                                    <h5 class="mb-3">@post.Service.Name_of_service</h5>
+                                    <span id="name-author" class="text-truncate me-3"><i class="fa-solid fa-bookmark" style="color: #00b074;"></i>@post.HID </span>
+                                    <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>@post.Price</span>
+                                    <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>@post.Location </span>
+                                    @*<span class="text-truncate me-3"><i class="far fa-calendar-alt text-primary me-2"></i>@post.DatePost.ToString("dd-MM-yyyy")</span>*@
+                                </div>
+                                <div class="Apply">
+                                    <a href="#" class="btn btn-primary">Apply Now</a>
+                                </div>
+                            </div>
+                        </a>
+                    }
+
                 </div>
+
+
             </div>
         </div>
     </div>
 </body>
+<script>
+    $(document).on('click', '.post-link', function (e) {
+        e.preventDefault();
+        var PID = $(this).data('pid');
+        window.location.href = $(this).attr('href');
+    });
+</script>
 
 <style>
     .post-item {
