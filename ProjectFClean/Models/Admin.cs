@@ -14,9 +14,9 @@ namespace ProjectFClean.Models
     
     public partial class Admin
     {
-        public string AdminID { get; set; }
+        public int AdminID { get; set; }
         public string Name { get; set; }
-        public string AccountID { get; set; }
+        public int AccountID { get; set; }
     
         public virtual Account Account { get; set; }
     }

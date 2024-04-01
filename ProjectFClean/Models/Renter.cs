@@ -17,24 +17,24 @@ namespace ProjectFClean.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Renter()
         {
-            this.Compacts = new HashSet<Compact>();
-            this.Feedbacks = new HashSet<Feedback>();
+            this.Compact = new HashSet<Compact>();
+            this.Feedback = new HashSet<Feedback>();
         }
     
-        public string RID { get; set; }
+        public int RID { get; set; }
         public string Gmail { get; set; }
         public string Name { get; set; }
         public string Phone { get; set; }
         public string Address { get; set; }
-        public string AccountID { get; set; }
+        public int AccountID { get; set; }
         public string City { get; set; }
         public string Distrinct { get; set; }
         public decimal Money { get; set; }
     
         public virtual Account Account { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Compact> Compacts { get; set; }
+        public virtual ICollection<Compact> Compact { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Feedback> Feedbacks { get; set; }
+        public virtual ICollection<Feedback> Feedback { get; set; }
     }
 }

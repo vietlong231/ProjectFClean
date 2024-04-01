@@ -14,10 +14,10 @@ namespace ProjectFClean.Models
     
     public partial class Payment
     {
-        public string PayID { get; set; }
-        public string RID { get; set; }
-        public string HID { get; set; }
-        public string CID { get; set; }
+        public int PayID { get; set; }
+        public int RID { get; set; }
+        public int HID { get; set; }
+        public int CID { get; set; }
         public decimal Total_price { get; set; }
     }
 }

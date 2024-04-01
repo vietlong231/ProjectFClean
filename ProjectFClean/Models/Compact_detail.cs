@@ -14,8 +14,8 @@ namespace ProjectFClean.Models
     
     public partial class Compact_detail
     {
-        public string ServiceID { get; set; }
-        public string CID { get; set; }
+        public int ServiceID { get; set; }
+        public int CID { get; set; }
         public decimal Total_price { get; set; }
     
         public virtual Compact Compact { get; set; }

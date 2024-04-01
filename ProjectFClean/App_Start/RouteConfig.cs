@@ -13,6 +13,14 @@ namespace ProjectFClean
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // Route cho action Details
+            routes.MapRoute(
+                name: "Details",
+                url: "Home/Details/{HID}",
+                defaults: new { controller = "Home", action = "Details", HID = UrlParameter.Optional }
+            );
+
+            // Route mặc định
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

@@ -8,24 +8,44 @@ namespace ProjectFClean.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ProjectFCleanEntities3 _db;
+        private readonly ProjectFCleanDB _db;
 
         public HomeController()
         {
-            _db = new ProjectFCleanEntities3();
+            _db = new ProjectFCleanDB();
         }
-
+        public class HomeIndexViewModel
+        {
+            public List<Housekeeper> ListHousekeeper { get; set; }
+            public List<Service> ListService { get; set; }
+        }
         public ActionResult Index()
         {
-            List<Housekeeper> listHousekeeper = _db.Housekeepers.ToList();
-            return View(listHousekeeper);
+            var viewModel = new HomeIndexViewModel
+            {
+                ListHousekeeper = _db.Housekeeper.ToList(),
+                ListService = _db.Service.ToList()
+            };
+
+
+            return View(viewModel);
+        }
+        public ActionResult Details(int HID = 0)
+        {
+            Housekeeper housekeeper = _db.Housekeeper.Find(HID);
+            if (housekeeper == null)
+            {
+                return HttpNotFound();
+            }
+            return View("DetailsHouseKeeper", housekeeper);
         }
 
+
         [HttpGet]
-        public ActionResult Search(string gender, string location, string name, string service)
+        public PartialViewResult Search(string gender, string location, string name, string service)
         {
             // Lọc danh sách HouseKeeper dựa trên các tham số tìm kiếm
-            IQueryable<Housekeeper> housekeepers = _db.Housekeepers;
+            IQueryable<Housekeeper> housekeepers = _db.Housekeeper;
 
             if (!string.IsNullOrEmpty(gender))
             {
@@ -53,10 +73,36 @@ namespace ProjectFClean.Controllers
             return PartialView("_HousekeeperList", searchResult);
         }
 
-        public ActionResult Sort(int sortOption)
+        public PartialViewResult Sort(int sortOption)
         {
             // Get the list of housekeepers from the database
-            var housekeepers = _db.Housekeepers.ToList();
+            var housekeepers = _db.Housekeeper.ToList();
+
+            // Perform sorting based on sortOption
+            switch (sortOption)
+            {
+                case 1: // Price Ascending
+                    housekeepers = housekeepers.OrderBy(h => h.Price).ToList();
+                    break;
+                case 2: // Price Decreasing
+                    housekeepers = housekeepers.OrderByDescending(h => h.Price).ToList();
+                    break;
+                case 3: // Experience Decreasing
+                    housekeepers = housekeepers.OrderByDescending(h => h.Experiment).ToList();
+                    break;
+                default:
+                    // Default sorting (if necessary)
+                    break;
+            }
+
+            // Return the sorted list as a partial view
+            return PartialView("_HousekeeperList", housekeepers);
+        }
+
+        public ActionResult Sorts(int sortOption)
+        {
+            // Get the list of housekeepers from the database
+            var housekeepers = _db.Housekeeper.ToList();
 
             // Perform sorting based on sortOption
             switch (sortOption)

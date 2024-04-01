@@ -20,12 +20,12 @@ namespace ProjectFClean.Models
             this.Compact_detail = new HashSet<Compact_detail>();
         }
     
-        public string CID { get; set; }
-        public string RID { get; set; }
-        public string HID { get; set; }
+        public int CID { get; set; }
+        public int RID { get; set; }
+        public int HID { get; set; }
         public string Signed_Date { get; set; }
         public string Work_Time { get; set; }
-        public string ServiceID { get; set; }
+        public int ServiceID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Compact_detail> Compact_detail { get; set; }

@@ -14,10 +14,10 @@ namespace ProjectFClean.Models
     
     public partial class Feedback
     {
-        public string FbID { get; set; }
+        public int FbID { get; set; }
         public string Comment { get; set; }
-        public string HID { get; set; }
-        public string RID { get; set; }
+        public int HID { get; set; }
+        public int RID { get; set; }
         public string Rate { get; set; }
     
         public virtual Housekeeper Housekeeper { get; set; }

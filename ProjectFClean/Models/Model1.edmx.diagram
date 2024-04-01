@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="cbfb28bebeda4401803ab7e691ad7978" Name="Diagram1">
+      <Diagram DiagramId="756df035541b4eb5bd3087a7850f256c" Name="Diagram1">
         <EntityTypeShape EntityType="ProjectFCleanModel.Account" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjectFCleanModel.Admin" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjectFCleanModel.Compact" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
@@ -12,10 +12,10 @@
         <EntityTypeShape EntityType="ProjectFCleanModel.Feedback" Width="1.5" PointX="8.25" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjectFCleanModel.Housekeeper" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjectFCleanModel.Payment" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProjectFCleanModel.Post" Width="1.5" PointX="5.25" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectFCleanModel.Post" Width="1.5" PointX="5.25" PointY="13.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjectFCleanModel.Renter" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjectFCleanModel.Service" Width="1.5" PointX="3" PointY="14.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProjectFCleanModel.sysdiagram" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectFCleanModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
         <AssociationConnector Association="ProjectFCleanModel.FK_Admin_Account" ManuallyRouted="false" />
         <AssociationConnector Association="ProjectFCleanModel.FK_Housekeeper_Account" ManuallyRouted="false" />
         <AssociationConnector Association="ProjectFCleanModel.FK_Renter_Account" ManuallyRouted="false" />

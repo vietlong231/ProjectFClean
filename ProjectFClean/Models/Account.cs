@@ -17,23 +17,24 @@ namespace ProjectFClean.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Account()
         {
-            this.Admins = new HashSet<Admin>();
-            this.Housekeepers = new HashSet<Housekeeper>();
-            this.Renters = new HashSet<Renter>();
+            this.Admin = new HashSet<Admin>();
+            this.Housekeeper = new HashSet<Housekeeper>();
+            this.Renter = new HashSet<Renter>();
         }
     
-        public string AccountID { get; set; }
-        public int Phone { get; set; }
+        public int AccountID { get; set; }
+        public string Name { get; set; }
+        public Nullable<int> IdentifyNumber { get; set; }
+        public Nullable<int> Phone { get; set; }
         public string Gmail { get; set; }
         public string Password { get; set; }
-        public string RoleID { get; set; }
         public string Approve { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Admin> Admins { get; set; }
+        public virtual ICollection<Admin> Admin { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Housekeeper> Housekeepers { get; set; }
+        public virtual ICollection<Housekeeper> Housekeeper { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Renter> Renters { get; set; }
+        public virtual ICollection<Renter> Renter { get; set; }
     }
 }
