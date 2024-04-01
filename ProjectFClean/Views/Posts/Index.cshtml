@@ -10,7 +10,7 @@
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="container-heading">
-                    <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Post Listing</h1>
+                    <h1 class="text-center mb-5 wow fadeInUp" id="header-post" data-wow-delay="0.1s">Post Listing</h1>
                     <a class="btn btn-primary" href="~/Posts/Create" id="btn-add">Create a Post</a>
                 </div>
                 <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.3s">
@@ -21,20 +21,24 @@
                                 @foreach (var post in Model)
                                 {
                                     <div class="post-item">
-                                        <h5 class="mb-3">Name of author</h5>
-                                        <span id="name-service" class="text-truncate me-3"><i class="fa-solid fa-bookmark" style="color: #00b074;"></i> @post.Service.Name_of_service</span>
-                                        <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i> @post.Price</span>
-                                        <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i> @post.Location</span>
-                                        @*<p>Service: @post.Service.Name_of_service</p>
-                                            <p>Price: @post.Price</p>
-                                            <p>Location: @post.Location</p>*@
-                                    </div>
-                                    <div class="Apply">
-                                        <div class="d-flex mb-3">
+                                        <div class="list-item-post">
+                                            <h5 class="mb-3">Name of author</h5>
+                                            <span id="name-service" class="text-truncate me-3"><i class="fa-solid fa-bookmark" style="color: #00b074;"></i> @post.Service.Name_of_service</span>
+                                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>@post.Price</span>
+                                            <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>@post.Location </span>
+                                            <span class="text-truncate me-3"><i class="far fa-calendar-alt text-primary me-2"></i>@DateTime.Now.ToString("dd-MM-yyyy")</span>
+                                            @*<input type="text" id="date-post" class="form-control" readonly value="@DateTime.Now.ToString("yyyy-MM-dd")">*@
+                                        </div>
+                                        <div class="Apply">
                                             <a class="btn btn-primary" href="">Apply Now</a>
                                         </div>
-                                        <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
                                     </div>
+                                    @*<div class="Apply">
+                                            <div class="d-flex mb-3">
+                                                <a class="btn btn-primary" href="">Apply Now</a>
+                                            </div>
+                                            <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                        </div>*@
                                 }
                             </a>
                         </div>
@@ -45,4 +49,43 @@
     </div>
 </body>
 
+<style>
+    .post-item {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 100px;
+        align-items: flex-end;
+    }
+
+    .list-item-post {
+        display: flex;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .Apply {
+        padding: 20px;
+    }
+
+    .container-heading {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #btn-add {
+        height: 40px;
+    }
+
+    #header-post {
+        margin-left: 500px;
+    }
+
+    h5.mb-3 {
+        margin-right: 200px;
+    }
+
+    i.fa.fa-map-marker-alt.text-primary.me-2 {
+        margin-left: 10px;
+    }
+</style>
 
